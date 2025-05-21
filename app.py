@@ -27,7 +27,12 @@ if "OPENAI_API_KEY" not in st.secrets:
 openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 # Initialize the LLM
-llm = ChatOpenAI(model="gpt-4o", temperature=0, api_key=openai_api_key)
+#llm = ChatOpenAI(model="gpt-4o", temperature=0, api_key=openai_api_key)
+llm = ChatOpenAI(
+    model="gpt-3.5-turbo",
+    temperature=0,
+    api_key=openai_api_key
+)
 
 
 # Prompt template
