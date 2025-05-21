@@ -19,11 +19,16 @@ import os
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 
-# Set OpenAI API key
-openai_api_key = st.secrets["OPENAI_API_KEY"] if "OPENAI_API_KEY" in st.secrets else st.text_input("Enter your OpenAI API Key", type="password")
+# Safely load the API key from secrets
+if "OPENAI_API_KEY" not in st.secrets:
+    st.error("❌ OpenAI API key not found. Please set it in Streamlit secrets.")
+    st.stop()
 
-# Load LLM
+openai_api_key = st.secrets["OPENAI_API_KEY"]
+
+# Initialize the LLM
 llm = ChatOpenAI(model="gpt-4o", temperature=0, api_key=openai_api_key)
+
 
 # Prompt template
 resume_prompt = PromptTemplate(
