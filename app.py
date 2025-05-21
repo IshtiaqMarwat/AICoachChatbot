@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1Zs6Wqob2JFpqkdrbUFPaS_yXW3Hv94hm
 """
 
-pip install -U streamlit langchain langchain-openai langchain-community PyPDF2 faiss-cpu sentence-transformers
+#pip install -U streamlit langchain langchain-openai langchain-community PyPDF2 faiss-cpu sentence-transformers
 
 import streamlit as st
 import PyPDF2
